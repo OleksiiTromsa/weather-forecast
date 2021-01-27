@@ -29,8 +29,8 @@ public class WeatherDto {
         public Integer type {get;set;} // in json: type
         public Integer id {get;set;}
         public String country {get;set;}
-        public Integer sunrise {get;set;}
-        public Integer sunset {get;set;}
+        public Long sunrise {get;set;}
+        public Long sunset {get;set;}
     }
 
     public class Main {
@@ -49,7 +49,7 @@ public class WeatherDto {
     public Integer visibility {get;set;}
     public Wind wind {get;set;}
     public Clouds clouds {get;set;}
-    public Integer dt {get;set;}
+    public Long dt {get;set;}
     public Sys sys {get;set;}
     public Integer timezone {get;set;}
     public Integer id {get;set;}

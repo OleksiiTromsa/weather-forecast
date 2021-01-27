@@ -32,17 +32,17 @@ public with sharing class WeatherMapper {
             weather.Clouds_All__c = dto.clouds.all;
         }
         if (dto.dt != null) {
-            weather.Datetime__c = Datetime.newInstance(dto.dt);
+            weather.Datetime__c = Datetime.newInstance(dto.dt * 1000);
         }
         if (dto.sys != null) {
             weather.Sys_Type__c = dto.sys.type;
             weather.Sys_Id__c = dto.sys.id;
             weather.Sys_Country__c = dto.sys.country;
             if (dto.sys.sunrise != null) {
-                weather.Sunrize__c = Datetime.newInstance(dto.sys.sunrise);
+                weather.Sunrize__c = Datetime.newInstance(dto.sys.sunrise * 1000);
             }
             if (dto.sys.sunset != null) {
-                weather.Sunset__c = Datetime.newInstance(dto.sys.sunset);
+                weather.Sunset__c = Datetime.newInstance(dto.sys.sunset * 1000);
             }
         }
         weather.Base__c = dto.base;

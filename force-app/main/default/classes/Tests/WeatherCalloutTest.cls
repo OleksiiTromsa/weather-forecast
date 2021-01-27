@@ -3,7 +3,7 @@
  */
 
 @IsTest
-private class WeatherCall {
+private class WeatherCalloutTest {
 
     @IsTest
     static void testGetCalloutFullJsonOk() {
