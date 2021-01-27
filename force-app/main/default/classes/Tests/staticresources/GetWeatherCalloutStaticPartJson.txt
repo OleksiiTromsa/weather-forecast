@@ -1,0 +1,2 @@
+{"coord":{"lon":-0.1257},"main":{"temp":273.3,"humidity":80},"wind":{"speed":3.09,"deg":250},
+"sys":{"sunrise":1611560914},"name":"London"}
