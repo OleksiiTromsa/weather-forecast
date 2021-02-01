@@ -4,7 +4,7 @@
 
 public class WeatherCallout {
 
-    public static HttpResponse makeGetCallout(String city) {
+    public static Weather__c makeGetCallout(String city) {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
         request.setMethod('GET');
@@ -21,6 +21,6 @@ public class WeatherCallout {
         WeatherDto dto = (WeatherDto) JSON.deserialize(response.getBody(), WeatherDto.class);
         Weather__c weather = WeatherMapper.dtoToWeather(dto);
         insert weather;
-        return response;
+        return weather;
     }
 }
