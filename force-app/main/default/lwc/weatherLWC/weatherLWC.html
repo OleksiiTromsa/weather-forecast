@@ -1,24 +1,26 @@
 <template>
   <lightning-card title="Weather forecast">
     <div>
-      <div style="float:left; width: 70%" >
+      <div style="float: left; width: 70%">
         <lightning-input type="search" label="Enter city"></lightning-input>
       </div>
-      <div style="float:left; margin-top: 24px; width: 30%">
-        <lightning-button label="Search" onclick={getWeatherForecast}></lightning-button>
+      <div style="float: left; margin-top: 24px; width: 30%">
+        <lightning-button
+          label="Search"
+          onclick={getWeatherForecast}
+        ></lightning-button>
       </div>
     </div>
 
-    <div>
+    <div id="123">
       <template if:true={weather}>
+        <br />
+        <br />
+        <p></p>
         <p>{city}, {dt}</p>
         <p>Temperature: {temperature}C</p>
         <div>Wind speed: {wind} m/s</div>
         <p>Pressure: {pressure}</p>
-      </template>
-
-      <template if:true={error}>
-        <p>Wrong city</p>
       </template>
     </div>
   </lightning-card>

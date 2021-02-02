@@ -2,10 +2,9 @@
  * Created by oleksiitromsa on 29.01.2021.
  */
 
-import { LightningElement, wire} from 'lwc';
+import { LightningElement, wire } from "lwc";
 // import getWeather from '@salesforce/apex/WeatherController.getWeather';
-import getWeatherAndInsertToDB from
-    '@salesforce/apex/WeatherController.getWeatherAndInsertToDB';
+import getWeatherAndInsertToDB from "@salesforce/apex/WeatherController.getWeatherAndInsertToDB";
 
 export default class WeatherLwc extends LightningElement {
   error;
@@ -14,21 +13,23 @@ export default class WeatherLwc extends LightningElement {
   temperature;
   pressure;
   dt;
+  city;
 
   getWeatherForecast() {
-    this.city = this.template.querySelector("lightning-input").value;
+    let inputCity = this.template.querySelector("lightning-input");
 
-    getWeatherAndInsertToDB({city: this.city})
-      .then(data => {
+    getWeatherAndInsertToDB({ city: inputCity.value })
+      .then((data) => {
+        this.city = inputCity.value;
         this.weather = data;
         this.wind = data.Wind_Speed__c;
         this.temperature = Math.round(data.Temperature__c - 273.15);
         this.pressure = data.Pressure__c;
-        this.dt = (new Date(Date.now())).toDateString();
+        this.dt = new Date(Date.now()).toDateString();
       })
-      .catch(error => {
-        this.error = error;
-      })
+      .catch((error) => {
+        alert("Wrong city");
+      });
   }
 
   // @wire(getWeather)
