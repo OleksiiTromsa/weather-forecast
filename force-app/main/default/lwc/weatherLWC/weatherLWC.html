@@ -5,15 +5,15 @@
         <lightning-input type="search" label="Enter city"></lightning-input>
       </div>
       <div class="submit-city-button">
-        <lightning-button label="Search" onclick={getWeatherForecast}></lightning-button>
+        <lightning-button
+          label="Search"
+          onclick={getWeatherForecast}
+        ></lightning-button>
       </div>
     </div>
 
     <div>
       <template if:true={weather}>
-        <br />
-        <br />
-        <p></p>
         <p>{city}, {dt}</p>
         <p>Temperature: {temperature}C</p>
         <p>Wind speed: {wind} m/s</p>
