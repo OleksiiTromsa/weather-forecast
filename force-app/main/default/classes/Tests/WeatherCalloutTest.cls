@@ -3,7 +3,7 @@
  */
 
 @IsTest
-private class WeatherCall {
+private class WeatherCalloutTest {
 
     @IsTest
     static void testGetCalloutFullJsonOk() {
@@ -13,7 +13,7 @@ private class WeatherCall {
         mock.setHeader('Content-Type', 'application/json;charset=UTF-8');
         Test.setMock(HttpCalloutMock.class, mock);
 
-        HttpResponse result = WeatherCallout.makeGetCallout('London');
+        HttpResponse result = WeatherCallout.getWeatherCallout('London');
 
         System.assertNotEquals(null, result,'The callout returned a null response.');
         System.assertEquals(200, result.getStatusCode(), 'The status code is not 200.');
@@ -30,7 +30,7 @@ private class WeatherCall {
         mock.setHeader('Content-Type', 'application/json;charset=UTF-8');
         Test.setMock(HttpCalloutMock.class, mock);
 
-        HttpResponse result = WeatherCallout.makeGetCallout('London');
+        HttpResponse result = WeatherCallout.getWeatherCallout('London');
 
         System.assertNotEquals(null, result,'The callout returned a null response.');
         System.assertEquals(200, result.getStatusCode(), 'The status code is not 200.');
@@ -48,7 +48,7 @@ private class WeatherCall {
 
         String errorMessage = '';
         try {
-            HttpResponse result = WeatherCallout.makeGetCallout('London');
+            HttpResponse result = WeatherCallout.getWeatherCallout('London');
         } catch (CalloutException e) {
             errorMessage = e.getMessage();
         }

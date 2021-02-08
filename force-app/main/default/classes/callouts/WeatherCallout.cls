@@ -1,15 +1,15 @@
 /**
- * Created by oleksiitromsa on 25.01.2021.
+ * Created by oleksiitromsa on 05.02.2021.
  */
 
-public class WeatherCallout {
-
-    public static HttpResponse makeGetCallout(String city) {
+public with sharing class WeatherCallout {
+    public static HttpResponse getWeatherCallout(String city) {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
         request.setMethod('GET');
+        Open_Weather_API_Key__mdt apiKey = OpenWeatherApiKeySelector.getActiveApiKey();
         String endPoint = 'http://api.openweathermap.org/data/2.5/weather?q=' + city
-                + '&appid=c840127ab41a64ffc77361a9d11b3ab3';
+                + '&appid=' + apiKey.Key__c;
         request.setEndpoint(endPoint);
         HttpResponse response = http.send(request);
 
@@ -17,9 +17,6 @@ public class WeatherCallout {
             throw new CalloutException('No forecast for city ' + city);
         }
 
-        WeatherDto dto = (WeatherDto) JSON.deserialize(response.getBody(), WeatherDto.class);
-        Weather__c weather = WeatherMapper.dtoToWeather(dto);
-        insert weather;
         return response;
     }
 }
