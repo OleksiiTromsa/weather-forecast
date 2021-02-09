@@ -2,32 +2,23 @@
  * Created by oleksiitromsa on 29.01.2021.
  */
 
-import { LightningElement } from "lwc";
+import { LightningElement, api } from "lwc";
 import createWeather from "@salesforce/apex/WeatherController.createWeather";
 
+
 export default class WeatherLwc extends LightningElement {
-  error;
-  weather;
-  wind;
-  temperature;
-  pressure;
-  dt;
-  city;
+  @api city;
+  weatherData;
 
-  getWeatherForecast() {
-    let inputCity = this.template.querySelector("lightning-input");
-
-    createWeather({ city: inputCity.value })
+  connectedCallback() {
+    createWeather({city : this.city})
       .then((data) => {
-        this.city = inputCity.value;
-        this.weather = data;
-        this.wind = data.Wind_Speed__c;
-        this.temperature = Math.round(data.Temperature__c);
-        this.pressure = data.Pressure__c;
-        this.dt = new Date(Date.now()).toDateString();
+        this.weatherData = data;
+        console.log(data);
       })
       .catch((error) => {
-        alert("Wrong city");
-      });
+        alert('Check city name');
+        // console.log(error);
+      })
   }
 }
