@@ -4,10 +4,12 @@
 
 import { LightningElement, api } from "lwc";
 import createWeather from "@salesforce/apex/WeatherController.createWeather";
+import staticWeatherImage from "@salesforce/resourceUrl/WeatherImage";
 
 export default class WeatherLwc extends LightningElement {
   @api city;
   weatherData;
+  weatherImage = staticWeatherImage;
 
   connectedCallback() {
     createWeather({ city: this.city })

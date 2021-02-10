@@ -8,8 +8,16 @@
         <target>lightning__HomePage</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__AppPage, lightning__RecordPage, lightning__HomePage">
-            <property name="city" type="String" label="City" placeholder="Lviv" description="Enter city"/>
+        <targetConfig
+      targets="lightning__AppPage, lightning__RecordPage, lightning__HomePage"
+    >
+            <property
+        name="city"
+        type="String"
+        label="City"
+        placeholder="Lviv"
+        description="Enter city"
+      />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

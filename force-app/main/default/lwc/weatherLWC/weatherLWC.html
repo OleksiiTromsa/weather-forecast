@@ -1,43 +1,47 @@
 <template>
   <div>
-  <lightning-card>
-    <template if:true={weatherData}>
-      <div class="slds-grid">
+    <lightning-card>
+      <template if:true={weatherData}>
+        <div class="slds-grid">
+          <div class="slds-col slds-size_5-of-12">
+            <img
+              class="slds-m-around_xx-small"
+              src={weatherImage}
+              alt="picture"
+              width="90%"
+              height="90%"
+            />
+          </div>
 
-        <div class="slds-col slds-size_5-of-12">
-          <img class="slds-m-around_xx-small" src="https://www.iconbunny.com/icons/media/catalog/product/4/8/484.10-partly-cloudy-i-icon-iconbunny.jpg"
-            alt="picture" width=90% height=90%>
-        </div>
-
-        <div class="slds-col slds-size_4-of-12">
-          <div class="slds-grid slds-grid_vertical">
-            <div class="slds-col">
-              <h5 class="city slds-m-top_x-large" >{city}</h5>
+          <div class="slds-col slds-size_4-of-12">
+            <div class="slds-grid slds-grid_vertical">
+              <div class="slds-col">
+                <h5 class="city slds-m-top_x-large">{city}</h5>
+              </div>
+              <div class="slds-col">
+                <h2 class="temperature">{weatherData.Temperature__c}˚C</h2>
+              </div>
             </div>
-            <div class="slds-col">
-              <h2 class="temperature">{weatherData.Temperature__c}˚C</h2>
+          </div>
+
+          <div class="slds-col slds-size_3-of-12 left-border">
+            <div class="slds-grid slds-grid_vertical">
+              <div class="slds-col slds-m-around_xx-small">
+                <h6 class="titles">Humidity:</h6>
+                <h6 class="weather-data">{weatherData.Humidity__c}%</h6>
+              </div>
+              <div class="slds-col slds-m-around_xx-small">
+                <h6 class="titles">Wind:</h6>
+                <h6 class="weather-data">{weatherData.Wind_Speed__c} m/s</h6>
+              </div>
+              <div class="slds-col slds-m-around_xx-small">
+                <h6 class="titles">Pressure:</h6>
+                <h6 class="weather-data">{weatherData.Pressure__c} mb</h6>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="slds-col slds-size_3-of-12 left-border">
-          <div class="slds-grid slds-grid_vertical">
-            <div class="slds-col slds-m-around_xx-small">
-              <h6 class="titles">Humidity:</h6>
-              <h6 class="weather-data">{weatherData.Humidity__c}%</h6>
-            </div>
-            <div class="slds-col slds-m-around_xx-small">
-              <h6 class="titles">Wind:</h6>
-              <h6 class="weather-data">{weatherData.Wind_Speed__c} m/s</h6>
-            </div>
-            <div class="slds-col slds-m-around_xx-small">
-              <h6 class="titles">Pressure:</h6>
-              <h6 class="weather-data">{weatherData.Pressure__c} mb</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-    </template>
-  </lightning-card>
+      </template>
+    </lightning-card>
   </div>
 </template>
