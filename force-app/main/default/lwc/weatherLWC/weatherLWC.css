@@ -4,31 +4,31 @@
 .temperature {
     font-weight: bold;
     font-size: 7vh;
-    text-align: center;
     vertical-align: top;
 }
 
 .city {
     font-size: 3vh;
-    text-align: center;
     vertical-align: middle;
     color: #9f9e9b;
 }
 
 .titles {
     font-size: 1em;
-    text-align: center;
     vertical-align: middle;
     color: #9f9e9b;
 }
 
 .weather-data {
     font-size: 1.25em;
-    text-align: center;
     vertical-align: middle;
 }
 
 .left-border {
     border-left: 0.2em solid #9f9e9b;
     height: 12em;
+}
+
+.center {
+    text-align: center;
 }

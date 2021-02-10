@@ -8,4 +8,9 @@ public with sharing class WeatherController {
         Weather__c weather = WeatherService.createWeather(city);
         return weather;
     }
+
+    @AuraEnabled(Cacheable=true)
+    public static Weather__c getWeather(String city) {
+        return WeatherService.getLatestWeather(city);
+    }
 }

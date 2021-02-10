@@ -15,11 +15,14 @@
 
           <div class="slds-col slds-size_4-of-12">
             <div class="slds-grid slds-grid_vertical">
-              <div class="slds-col">
-                <h5 class="city slds-m-top_x-large">{city}</h5>
+              <div class="slds-col center">
+                <h5 class="city slds-m-top_medium">{city}</h5>
               </div>
-              <div class="slds-col">
+              <div class="slds-col center">
                 <h2 class="temperature">{weatherData.Temperature__c}˚C</h2>
+              </div>
+              <div class="slds-col center">
+                <p>{lastUpdateDate}</p>
               </div>
             </div>
           </div>
@@ -27,21 +30,29 @@
           <div class="slds-col slds-size_3-of-12 left-border">
             <div class="slds-grid slds-grid_vertical">
               <div class="slds-col slds-m-around_xx-small">
-                <h6 class="titles">Humidity:</h6>
-                <h6 class="weather-data">{weatherData.Humidity__c}%</h6>
+                <h6 class="titles center">Humidity:</h6>
+                <h6 class="weather-data center">{weatherData.Humidity__c}%</h6>
               </div>
               <div class="slds-col slds-m-around_xx-small">
-                <h6 class="titles">Wind:</h6>
-                <h6 class="weather-data">{weatherData.Wind_Speed__c} m/s</h6>
+                <h6 class="titles center">Wind:</h6>
+                <h6 class="weather-data center">{weatherData.Wind_Speed__c} m/s</h6>
               </div>
               <div class="slds-col slds-m-around_xx-small">
-                <h6 class="titles">Pressure:</h6>
-                <h6 class="weather-data">{weatherData.Pressure__c} mb</h6>
+                <h6 class="titles center">Pressure:</h6>
+                <h6 class="weather-data center">{weatherData.Pressure__c} mb</h6>
               </div>
             </div>
           </div>
         </div>
       </template>
+
+      <template if:false={weatherData}>
+        <p class="center">No Data. Click refresh button to get it.</p>
+      </template>
+
+      <div class="slds-m-left_small">
+        <lightning-button-icon icon-name="utility:refresh" onclick={refreshWeather}></lightning-button-icon>
+      </div>
     </lightning-card>
   </div>
 </template>
