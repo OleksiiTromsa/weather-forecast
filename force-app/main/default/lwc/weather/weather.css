@@ -1,0 +1,34 @@
+/**
+ * Created by oleksiitromsa on 09.02.2021.
+ */
+.temperature {
+    font-weight: bold;
+    font-size: 7vh;
+    vertical-align: top;
+}
+
+.city {
+    font-size: 3vh;
+    vertical-align: middle;
+    color: #9f9e9b;
+}
+
+.titles {
+    font-size: 1em;
+    vertical-align: middle;
+    color: #9f9e9b;
+}
+
+.weather-data {
+    font-size: 1.25em;
+    vertical-align: middle;
+}
+
+.left-border {
+    border-left: 0.2em solid #9f9e9b;
+    height: 12em;
+}
+
+.center {
+    text-align: center;
+}

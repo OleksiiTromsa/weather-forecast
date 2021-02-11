@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Temperature__c</fullName>
+    <fullName>Forecast_Date__c</fullName>
     <externalId>false</externalId>
-    <label>Temperature</label>
-    <precision>8</precision>
+    <label>Forecast Date</label>
     <required>false</required>
-    <scale>0</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
-    <unique>false</unique>
+    <type>Date</type>
 </CustomField>

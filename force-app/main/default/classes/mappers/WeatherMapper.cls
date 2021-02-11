@@ -20,8 +20,10 @@ public with sharing class WeatherMapper {
             weather.Weather_Icon__c = dto.weather.get(0).icon;
         }
         if (dto.main != null) {
-            weather.Temperature__c = convertKelvinToCelsius(dto.main.temp);
-            weather.Feels_Like__c = convertKelvinToCelsius(dto.main.feels_like);
+            weather.Temperature__c = convertKelvinToCelsius(dto.main.temp)
+                    .round(System.RoundingMode.DOWN);
+            weather.Feels_Like__c = convertKelvinToCelsius(dto.main.feels_like)
+                    .round(System.RoundingMode.DOWN);
             weather.Temp_Max__c = convertKelvinToCelsius(dto.main.temp_max);
             weather.Temp_Min__c = convertKelvinToCelsius(dto.main.temp_min);
             weather.Pressure__c = dto.main.pressure;
@@ -54,6 +56,7 @@ public with sharing class WeatherMapper {
         weather.External_Id__c = dto.id;
         weather.City_Name__c = dto.name;
         weather.Cod__c = dto.cod;
+        weather.Forecast_Date__c = weather.Datetime__c.date();
 
         return weather;
     }

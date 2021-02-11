@@ -1,0 +1,14 @@
+<!--
+ - Created by oleksiitromsa on 11.02.2021.
+ -->
+
+<template>
+  <lightning-input
+    type="text"
+    label="Input city"
+    value={city}
+    onchange={onCityChange}
+  ></lightning-input>
+
+  <c-weather city={city}></c-weather>
+</template>

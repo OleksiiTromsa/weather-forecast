@@ -9,4 +9,9 @@ public class WeatherService {
         insert weather;
         return weather;
     }
+
+    public static Weather__c getLatestWeather(String city) {
+        Weather__c weather = WeatherSelector.getLatestWeather(city);
+        return weather;
+    }
 }
