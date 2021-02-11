@@ -7,26 +7,18 @@ import createWeather from "@salesforce/apex/WeatherController.createWeather";
 import getWeather from "@salesforce/apex/WeatherController.getWeather";
 import staticWeatherImage from "@salesforce/resourceUrl/WeatherImage";
 
-export default class WeatherLwc extends LightningElement {
+export default class Weather extends LightningElement {
   @api city;
 
-  weatherData;
-  lastUpdateDate;
   weatherImage = staticWeatherImage;
 
-  @wire(getWeather, { city: "$city" })
-  getWeather(response) {
-    if (response.data) {
-      this.weatherData = response.data;
-      this.lastUpdateDate = this.weatherData.Datetime__c.substring(0, 10);
-    }
-  }
+  @wire(getWeather, { city: '$city' })
+  weatherData;
 
   refreshWeather() {
     createWeather({ city: this.city })
       .then((data) => {
-        this.weatherData = data;
-        this.lastUpdateDate = this.weatherData.Datetime__c.substring(0, 10);
+        this.weatherData = {data};
       })
       .catch((error) => {
         alert("Check city name");

@@ -56,6 +56,7 @@ public with sharing class WeatherMapper {
         weather.External_Id__c = dto.id;
         weather.City_Name__c = dto.name;
         weather.Cod__c = dto.cod;
+        weather.Forecast_Date__c = weather.Datetime__c.date();
 
         return weather;
     }

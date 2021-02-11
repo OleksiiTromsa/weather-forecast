@@ -1,7 +1,7 @@
 <template>
   <div>
     <lightning-card>
-      <template if:true={weatherData}>
+      <template if:true={weatherData.data}>
         <div class="slds-grid">
           <div class="slds-col slds-size_5-of-12">
             <img
@@ -19,10 +19,10 @@
                 <h5 class="city slds-m-top_medium">{city}</h5>
               </div>
               <div class="slds-col center">
-                <h2 class="temperature">{weatherData.Temperature__c}˚C</h2>
+                <h2 class="temperature">{weatherData.data.Temperature__c}˚C</h2>
               </div>
               <div class="slds-col center">
-                <p>{lastUpdateDate}</p>
+                <p>{weatherData.data.Forecast_Date__c}</p>
               </div>
             </div>
           </div>
@@ -31,22 +31,22 @@
             <div class="slds-grid slds-grid_vertical">
               <div class="slds-col slds-m-around_xx-small">
                 <h6 class="titles center">Humidity:</h6>
-                <h6 class="weather-data center">{weatherData.Humidity__c}%</h6>
+                <h6 class="weather-data center">{weatherData.data.Humidity__c}%</h6>
               </div>
               <div class="slds-col slds-m-around_xx-small">
                 <h6 class="titles center">Wind:</h6>
-                <h6 class="weather-data center">{weatherData.Wind_Speed__c} m/s</h6>
+                <h6 class="weather-data center">{weatherData.data.Wind_Speed__c} m/s</h6>
               </div>
               <div class="slds-col slds-m-around_xx-small">
                 <h6 class="titles center">Pressure:</h6>
-                <h6 class="weather-data center">{weatherData.Pressure__c} mb</h6>
+                <h6 class="weather-data center">{weatherData.data.Pressure__c} mb</h6>
               </div>
             </div>
           </div>
         </div>
       </template>
 
-      <template if:false={weatherData}>
+      <template if:false={weatherData.data}>
         <p class="center">No Data. Click refresh button to get it.</p>
       </template>
 
