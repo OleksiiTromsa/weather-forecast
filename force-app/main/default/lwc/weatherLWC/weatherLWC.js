@@ -14,11 +14,11 @@ export default class WeatherLwc extends LightningElement {
   lastUpdateDate;
   weatherImage = staticWeatherImage;
 
-  @wire(getWeather, {city: '$city'})
+  @wire(getWeather, { city: "$city" })
   getWeather(response) {
     if (response.data) {
       this.weatherData = response.data;
-      this.lastUpdateDate = this.getDate();
+      this.lastUpdateDate = this.weatherData.Datetime__c.substring(0, 10);
     }
   }
 
@@ -26,14 +26,10 @@ export default class WeatherLwc extends LightningElement {
     createWeather({ city: this.city })
       .then((data) => {
         this.weatherData = data;
-        this.lastUpdateDate = this.getDate();
+        this.lastUpdateDate = this.weatherData.Datetime__c.substring(0, 10);
       })
       .catch((error) => {
         alert("Check city name");
       });
-  }
-
-  getDate() {
-    return this.weatherData.Datetime__c.substring(0, 10);
   }
 }
